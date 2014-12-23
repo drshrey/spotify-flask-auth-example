@@ -7,16 +7,16 @@ app = Flask(__name__)
 
 #Authorization code flow
 url = "https://accounts.spotify.com/authorize"
-CLIENT_ID = "e06414fc421c48068282f34f7479d656"
+CLIENT_ID = ""
 REDIRECT_URI = "http://127.0.0.1:8080/callback/q"
 SCOPE = "user-modify-private user-modify-public"
-CLIENT_SECRET = "76b18eaaa0a74599a298b1e0d2a32c3e"
+CLIENT_SECRET = ""
 
 payload = {"client_id":CLIENT_ID, "response_type":"code","redirect_uri":REDIRECT_URI,"scope":SCOPE}
 
 @app.route('/')
 def index():
-	return redirect("https://accounts.spotify.com/authorize/?client_id=e06414fc421c48068282f34f7479d656&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private")
+	return redirect("https://accounts.spotify.com/authorize/?client_id=&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fcallback%2Fq&scope=playlist-modify-public+playlist-modify-private")
 
 @app.route("/callback/q")
 def callback():
@@ -34,6 +34,8 @@ def callback():
 	for playlist in jsoned_playlists['items']:
 		json_array.append(playlist)
 	return render_template("index.html",sorted_array=json_array)
+
+
 
 
 if __name__ == "__main__":
