@@ -11,7 +11,7 @@ Also, inside the redirect function (in the index route), make sure to include th
 
 
 ##Step 2
-Be sure to make sure your redirect uri, inside your application page in the Spotify Developers website is "http://127.0.0.1:8080/callback/q".
+Be sure that your redirect uri, inside your application page in the Spotify Developers website is "http://127.0.0.1:8080/callback/q".
 
 
 ##Step 3
