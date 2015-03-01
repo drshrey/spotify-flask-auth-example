@@ -52,10 +52,10 @@ def index():
 @app.route("/callback/q")
 def callback():
     # Auth Step 4: Requests refresh and access tokens
-    access_token = request.args['code']
+    auth_token = request.args['code']
     code_payload = {
         "grant_type": "authorization_code",
-        "code": str(access_token),
+        "code": str(auth_token),
         "redirect_uri": REDIRECT_URI
     }
     base64encoded = base64.b64encode("{}:{}".format(CLIENT_ID, CLIENT_SECRET))
